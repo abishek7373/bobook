@@ -4,26 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../../actions/authActions';
 
 const Register = () => {
-  const [userData, setUserData] = useState({
-    email: '',
-    password: ''
-  });
+  const [userData, setUserData] = useState({ email: '', password: '' });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const error = useSelector(state => state.auth.error);
 
   const handleChange = (e) => {
-    setUserData({
-      ...userData,
-      [e.target.name]: e.target.value
-    });
+    setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(registerUser(userData));
-    window.alert('Redirecting to Login Page');
-    navigate('/Login');
+    dispatch(registerUser(userData)).then(() => {
+      navigate('/login');
+    });
   };
 
   return (
@@ -38,7 +32,7 @@ const Register = () => {
               value={userData.email}
               onChange={handleChange}
               style={{ ...styles.input, textAlign: 'center' }}
-              placeholder='Email'
+              placeholder="Email"
             />
           </label>
           <br />
@@ -49,19 +43,11 @@ const Register = () => {
               value={userData.password}
               onChange={handleChange}
               style={{ ...styles.input, textAlign: 'center' }}
-              placeholder='Password'
-            />
-          </label>
-          <label style={styles.label}>
-            <input
-              type="password"
-              name="confirmPassword"
-              style={{ ...styles.input, textAlign: 'center', marginTop: '18px' }}
-              placeholder='Confirm Password'
+              placeholder="Password"
             />
           </label>
           <br />
-          <button type="submit" style={styles.button}>
+          <button type="submit" style={styles.button} onClick={handleSubmit}>
             Register
           </button>
           <br />
@@ -74,49 +60,67 @@ const Register = () => {
 
 const styles = {
   container: {
-    marginTop: '160px',
-    paddingBottom: '200px'
+    paddingTop: '160px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    backgroundColor: '##rgba(255, 255, 255, 0.347);', // Light blue background
+    fontFamily: 'Arial, sans-serif',
   },
   form: {
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: '300px',
-    paddingRight: '40px',
-    paddingLeft: '20px',
-    paddingTop: '20px',
-    paddingBottom: '20px',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    backgroundColor: 'white',
-    fontFamily: 'san-serif',
-    boxShadow: 'rgba(0, 0, 0, 0.4) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset'
+    maxWidth: '350px',
+    padding: '20px',
+    border: '1px solid #00796b', // Teal border
+    borderRadius: '8px',
+    backgroundColor: '#ffffff',
+    boxShadow:
+      'rgba(0, 0, 0, 0.3) 0px 8px 16px 0px, rgba(0, 0, 0, 0.1) 0px 4px 8px 0px',
   },
   label: {
-    marginBottom: '8px',
-    fontSize: '14px',
+    marginBottom: '12px',
+    fontSize: '16px',
     fontWeight: 'bold',
+    color: '#00796b', // Teal color
   },
   input: {
-    padding: '8px',
-    marginBottom: '15px',
-    border: '1px solid #ccc',
-    borderRadius: '3px',
-    fontSize: '14px',
+    padding: '10px',
+    marginBottom: '20px',
+    border: '1px solid #00796b', // Teal border
+    borderRadius: '5px',
+    fontSize: '16px',
     width: '100%',
+    boxSizing: 'border-box',
   },
   button: {
-    padding: '10px',
+    padding: '12px',
     border: 'none',
-    borderRadius: '3px',
-    backgroundColor: 'black',
-    color: 'white',
-    fontSize: '16px',
+    borderRadius: '5px',
+    backgroundColor: '#00796b', // Teal background
+    color: '#ffffff',
+    fontSize: '18px',
     cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  },
+  buttonHover: {
+    backgroundColor: '#004d40', // Darker teal for hover
   },
   error: {
-    color: 'red',
+    color: '#d32f2f', // Red color for error
     fontSize: '14px',
+    marginTop: '10px',
+  },
+  registerLink: {
+    marginTop: '20px',
+    fontSize: '16px',
+  },
+  link: {
+    color: '#00796b', // Teal color
+    textDecoration: 'underline',
+    cursor: 'pointer',
   },
 };
+
 
 export default Register;

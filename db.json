@@ -1,5 +1,102 @@
 {
   "users": [
-    
-  ]
+    {
+      "id": "eb17",
+      "email": "abi@123",
+      "password": "marudhu"
+    },
+    {
+      "id": "dc8d",
+      "email": "aa@123",
+      "password": "123"
+    },
+    {
+      "id": "c6ed",
+      "email": "hari@gmail.com",
+      "password": "hh"
+    }
+  ],
+    "boatData": [
+      {
+        "id": 1,
+        "name": "Sea Breeze",
+        "description": "A beautiful sailboat perfect for weekend trips.",
+        "image": "/img/sea_breeze.jpg",
+        "price": "30000/day",
+        "location": "Miami, FL",
+        "type": "Sailboat"
+      },
+      {
+        "id": 2,
+        "name": "Wave Rider",
+        "description": "Experience the thrill of riding the waves.",
+        "image": "/img/wave_rider.jpg",
+        "price": "50000/day",
+        "location": "San Diego, CA",
+        "type": "Speedboat"
+      },
+      {
+        "id": 3,
+        "name": "Titanic",
+        "description": "Titanic which Doesn't Sink.",
+        "image": "/img/Titanic.jpg",
+        "price": "your_life/day",
+        "location": "New York, NY",
+        "type": "Luxury Yacht"
+      },
+      {
+        "id": 1,
+        "name": "Sea Breeze",
+        "description": "A beautiful sailboat perfect for weekend trips.",
+        "image": "/img/sea_breeze.jpg",
+        "price": "30000/day",
+        "location": "Miami, FL",
+        "type": "Sailboat"
+      },
+      {
+        "id": 2,
+        "name": "Wave Rider",
+        "description": "Experience the thrill of riding the waves.",
+        "image": "/img/wave_rider.jpg",
+        "price": "50000/day",
+        "location": "San Diego, CA",
+        "type": "Speedboat"
+      },
+      {
+        "id": 3,
+        "name": "Titanic",
+        "description": "Titanic which Doesn't Sink.",
+        "image": "/img/Titanic.jpg",
+        "price": "your_life/day",
+        "location": "New York, NY",
+        "type": "Luxury Yacht"
+      },
+      {
+        "id": 1,
+        "name": "Sea Breeze",
+        "description": "A beautiful sailboat perfect for weekend trips.",
+        "image": "/img/sea_breeze.jpg",
+        "price": "30000/day",
+        "location": "Miami, FL",
+        "type": "Sailboat"
+      },
+      {
+        "id": 2,
+        "name": "Wave Rider",
+        "description": "Experience the thrill of riding the waves.",
+        "image": "/img/wave_rider.jpg",
+        "price": "50000/day",
+        "location": "San Diego, CA",
+        "type": "Speedboat"
+      },
+      {
+        "id": 3,
+        "name": "Titanic",
+        "description": "Titanic which Doesn't Sink.",
+        "image": "/img/Titanic.jpg",
+        "price": "your_life/day",
+        "location": "New York, NY",
+        "type": "Luxury Yacht"
+      }
+    ]
 }

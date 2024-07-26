@@ -1,0 +1,29 @@
+.boat-detail-container {
+    padding: 20px;
+    background-color: #e0f7fa; /* Light blue background */
+    font-family: 'Arial, sans-serif';
+    text-align: center;
+}
+
+.boat-detail-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.boat-detail-container h1 {
+    margin: 10px 0;
+    color: #00796b; /* Teal color for boat names */
+}
+
+.boat-detail-container p {
+    color: #333;
+    margin: 10px 0;
+}
+
+.boat-detail-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d32f2f; /* Red color for the price */
+}

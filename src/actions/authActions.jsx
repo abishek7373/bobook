@@ -23,8 +23,11 @@ export const loginUser = (loginData) => async (dispatch) => {
       throw new Error('Incorrect password');
     }
 
+    console.log('Login successful');
     dispatch({ type: 'LOGIN_SUCCESS', payload: foundUser });
   } catch (error) {
+    console.error('Login failed:', error.message);
     dispatch({ type: 'LOGIN_FAIL', payload: error.message });
   }
 };
+
