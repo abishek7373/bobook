@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { registerUser } from '../../actions/authActions';
 
 const Register = () => {
   const [userData, setUserData] = useState({
     email: '',
     password: ''
   });
-  const [error, setError] = useState('');
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const error = useSelector(state => state.auth.error);
 
   const handleChange = (e) => {
     setUserData({
@@ -16,50 +19,26 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch('http://localhost:3001/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to register');
-      }
-
-      console.log('User registered successfully:', userData);
-      setError('');
-      window.alert("Redircting to Login Page")
-      navigate('/Login');
-
-
-    } catch (error) {
-      setError('Error registering user');
-      console.error('Error registering user:', error);
-    }
-
+    dispatch(registerUser(userData));
+    window.alert('Redirecting to Login Page');
+    navigate('/Login');
   };
 
   return (
     <div style={styles.container}>
       <center>
         <form style={styles.form} onSubmit={handleSubmit}>
-          <h1 style={{fontFamily:'sans-serif'}}>Register</h1>
+          <h1 style={{ fontFamily: 'sans-serif' }}>Register</h1>
           <label style={styles.label}>
-            
             <input
               type="email"
               name="email"
               value={userData.email}
               onChange={handleChange}
-              style={{...styles.input , textAlign: 'center' }}
+              style={{ ...styles.input, textAlign: 'center' }}
               placeholder='Email'
-
             />
           </label>
           <br />
@@ -69,20 +48,16 @@ const Register = () => {
               name="password"
               value={userData.password}
               onChange={handleChange}
-              style={{...styles.input , textAlign: 'center' }}
-              placeholder='Passsword'
-
+              style={{ ...styles.input, textAlign: 'center' }}
+              placeholder='Password'
             />
           </label>
           <label style={styles.label}>
             <input
               type="password"
-              name="password"
-              value={userData.password}
-              onChange={handleChange}
-              style={{...styles.input , textAlign: 'center' , marginTop:'18px'}}
-              placeholder='Conform Password'
-
+              name="confirmPassword"
+              style={{ ...styles.input, textAlign: 'center', marginTop: '18px' }}
+              placeholder='Confirm Password'
             />
           </label>
           <br />
@@ -99,8 +74,8 @@ const Register = () => {
 
 const styles = {
   container: {
-    marginTop :'160px',
-    paddingBottom:'200px'
+    marginTop: '160px',
+    paddingBottom: '200px'
   },
   form: {
     display: 'flex',
@@ -115,7 +90,6 @@ const styles = {
     backgroundColor: 'white',
     fontFamily: 'san-serif',
     boxShadow: 'rgba(0, 0, 0, 0.4) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset'
-
   },
   label: {
     marginBottom: '8px',
@@ -130,7 +104,6 @@ const styles = {
     fontSize: '14px',
     width: '100%',
   },
- 
   button: {
     padding: '10px',
     border: 'none',

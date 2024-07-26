@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../../actions/authActions';
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
   });
-  const [error, setError] = useState('');
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const error = useSelector(state => state.auth.error);
 
   const handleChange = (e) => {
     setLoginData({
@@ -17,82 +19,51 @@ const Login = () => {
     });
   };
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-
-    const { email, password } = loginData;
-
-    try {
-      const response = await fetch('http://localhost:3001/users');
-      if (!response.ok) {
-        throw new Error('Failed to fetch');
-      }
-
-      const users = await response.json();
-      const foundUser = users.find(user => user.email === email);
-
-      if (!foundUser) {
-        setError('User not found. Please check your email.');
-        navigate('/Register'); 
-        window.alert('Incorrect Username Redirecting to RegisterPage');
-        return;
-      }
-
-      if (foundUser.password !== password) {
-        setError('Incorrect password. Please try again.');
-        return;
-      }
-
-      setError(''); 
-
-
-      console.log('Login successful:', foundUser);
-      window.alert('Successfully Logged In');
-      navigate('/'); 
-
-    } catch (error) {
-      setError('Error fetching user data');
-    }
+    dispatch(loginUser(loginData));
+    window.alert('Successfully Logged In');
+    navigate('/');
   };
 
   return (
     <div style={styles.container}>
       <center>
-      <form style={styles.form}>
-      <center><h1 style={{fontFamily:'sans-serif'}}>Login</h1></center>
-        <label style={styles.label}>
-          <input
-            type="email"
-            name="email"
-            value={loginData.email}
-            onChange={handleChange}
-            style={{...styles.input , textAlign: 'center' }}
-            placeholder='Email'
-          />
-        </label>
-        <br />
-        <label style={styles.label}>
-          <input
-            type="password"
-            name="password"
-            value={loginData.password}
-            onChange={handleChange}
-            style={{...styles.input , textAlign: 'center' }}
-            placeholder='Passsword'
-          />
-        </label>
-        <br />
-        <button onClick={handleLogin} style={styles.button}>
-          Login
-        </button>
-        <br />
-        {error && <span style={styles.error}>{error}</span>}
-      </form>
+        <form style={styles.form} onSubmit={handleLogin}>
+          <center><h1 style={{ fontFamily: 'sans-serif' }}>Login</h1></center>
+          <label style={styles.label}>
+            <input
+              type="email"
+              name="email"
+              value={loginData.email}
+              onChange={handleChange}
+              style={{ ...styles.input, textAlign: 'center' }}
+              placeholder='Email'
+            />
+          </label>
+          <br />
+          <label style={styles.label}>
+            <input
+              type="password"
+              name="password"
+              value={loginData.password}
+              onChange={handleChange}
+              style={{ ...styles.input, textAlign: 'center' }}
+              placeholder='Password'
+            />
+          </label>
+          <br />
+          <button type="submit" style={styles.button}>
+            Login
+          </button>
+          <br />
+          {error && <span style={styles.error}>{error}</span>}
+          
+        </form>
       </center>
     </div>
   );
 };
-
 
 const styles = {
   container: {
@@ -144,5 +115,4 @@ const styles = {
     fontSize: '14px',
   },
 };
-
 export default Login;
