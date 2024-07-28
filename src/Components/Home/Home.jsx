@@ -13,16 +13,15 @@ const Home = () => {
             .then(response => response.json())
             .then(data => {
                 setBoats(data);
-                setFilteredBoats(data); // Set both initial boats and filtered boats
+                setFilteredBoats(data);
             });
     }, []);
 
     useEffect(() => {
-        // Filter boats based on the search term
         const filtered = boats.filter(boat =>
             boat.location.toLowerCase().includes(searchTerm.toLowerCase())
         );
-        setFilteredBoats(filtered); // Update filtered boats
+        setFilteredBoats(filtered);
     }, [searchTerm, boats]);
 
     const handleCardClick = (id) => {
@@ -42,18 +41,14 @@ const Home = () => {
                 />
             </div>
             <div className="boat-grid">
-                {filteredBoats.length > 0 ? (
-                    filteredBoats.map(boat => (
-                        <div key={boat.id} className="boat-card" onClick={() => handleCardClick(boat.id)}>
-                            <img src={boat.image} alt={boat.name} className="boat-image" />
-                            <h2>{boat.name}</h2>
-                            <p>{boat.description}</p>
-                            <p className="boat-price">{boat.price}</p>
-                        </div>
-                    ))
-                ) : (
-                    <p>No boats found for the selected location.</p>
-                )}
+                {filteredBoats.map(boat => (
+                    <div key={boat.id} className="boat-card" onClick={() => handleCardClick(boat.id)}>
+                        <img src={boat.image} alt={boat.name} className="boat-image" />
+                        <h2>{boat.name}</h2>
+                        <p>{boat.description}</p>
+                        <p className="boat-price">{boat.price}</p>
+                    </div>
+                ))}
             </div>
         </div>
     );

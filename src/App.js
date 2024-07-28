@@ -7,19 +7,27 @@ import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile';
 import BoatDetail from './Components/BoatDetail/BoatDetail';
 
+import Payment from './Components/Payment/Payment'; // Import the Payment component
+import Bookings from './Components/Bookings/Bookings';
 
-const App = () => (
-  <div>
-    <Navbar ></Navbar>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/boat/:id" element={<BoatDetail/>} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/profile" element={<Profile />} />
+const App = () => {
 
-    </Routes>
-  </div>
-);
+
+  return (
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/boat/:id" element={<BoatDetail />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/bookings" element={<Bookings />} />
+
+      </Routes>
+    </div>
+  );
+};
 
 export default App;

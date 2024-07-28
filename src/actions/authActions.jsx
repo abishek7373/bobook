@@ -30,4 +30,3 @@ export const loginUser = (loginData) => async (dispatch) => {
     dispatch({ type: 'LOGIN_FAIL', payload: error.message });
   }
 };
-

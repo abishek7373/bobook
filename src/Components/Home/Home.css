@@ -1,33 +1,53 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .home-container {
     padding: 20px;
-    background-color: #e0f7fa; /* Light blue background */
+    background-color: rgba(255, 255, 255, 0.347); /* Light background color */
     font-family: 'Arial, sans-serif';
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #00796b; /* Teal color for the heading */
+    color: #14599e; /* Dark blue color for the heading */
+    font-size: 2.5em;
+    transition: color 0.3s ease;
+    animation: fadeIn 0.8s ease-in-out;
+    opacity: 0; /* Start hidden */
+    animation-fill-mode: forwards;
+}
+
+h1:hover {
+    color: #0f4a85; /* Darker blue on hover */
 }
 
 .search-container {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     margin-bottom: 20px;
 }
 
 .search-input {
-    width: 100%;
-    max-width: 400px;
     padding: 10px;
-    border: 1px solid #00796b; /* Teal border */
+    border: 1px solid #003366; /* Dark blue border */
     border-radius: 4px;
-    font-size: 16px;
-    outline: none;
+    width: 300px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.4s ease-in-out;
+    opacity: 0; /* Start hidden */
+    animation-fill-mode: forwards;
 }
 
 .search-input:focus {
-    border-color: #004d40; /* Darker teal on focus */
+    border-color: #4884c0; /* Darker blue on focus */
+    box-shadow: 0 0 8px rgba(72, 132, 192, 0.5);
+    outline: none;
 }
 
 .boat-grid {
@@ -39,38 +59,61 @@ h1 {
 
 .boat-card {
     background-color: #ffffff;
-    border: 1px solid #00796b; /* Teal border */
+    border: 1px solid #4884c0; /* Dark blue border */
     border-radius: 8px;
     padding: 20px;
     width: 300px;
-    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
     text-align: center;
-    cursor: pointer; /* Add cursor pointer for clickable cards */
-    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    animation: fadeIn 0.6s ease-in-out;
+    opacity: 0; /* Start hidden */
+    animation-fill-mode: forwards;
 }
 
 .boat-card:hover {
-    transform: translateY(-10px); /* Elevate on hover */
+    transform: translateY(-10px); /* More pronounced lift on hover */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
 }
 
 .boat-image {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    animation: fadeIn 0.6s ease-in-out;
+    opacity: 0; /* Start hidden */
+    animation-fill-mode: forwards;
 }
+
+
 
 .boat-card h2 {
     margin: 10px 0;
-    color: #00796b; /* Teal color for boat names */
+    color: #0f4a85; /* Dark blue color for boat names */
+    transition: color 0.6s ease;
+}
+
+.boat-card h2:hover {
+    color: #14599e; /* Change color on hover */
 }
 
 .boat-card p {
     color: #333;
-    margin: 5px 0;
+    transition: color 0.6s ease;
+}
+
+.boat-card p:hover {
+    color: #4884c0; /* Change color on hover */
 }
 
 .boat-price {
     font-size: 18px;
     font-weight: bold;
     color: #d32f2f; /* Red color for the price */
+    transition: color 0.6s ease;
+}
+
+.boat-price:hover {
+    color: #a62829; /* Darker red on hover */
 }

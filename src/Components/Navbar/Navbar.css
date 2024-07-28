@@ -46,3 +46,12 @@
     transition: transform 0.3s ease-in-out;
     color: #000000; 
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.boat-themed-heading {
+    color: black;
+    padding-top: 20px;
+    font-size:x-large;
+    font-family: 'Patrick Hand', cursive; /* Apply the boat-themed font */
+}

@@ -77,7 +77,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    backgroundColor: '#rgba(255, 255, 255, 0.347);', // Light blue background
+    backgroundColor: 'backgroundColor: #rgba(255, 255, 255, 0.347)', // Light blue background
     fontFamily: 'Arial, sans-serif',
   },
   form: {
