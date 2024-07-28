@@ -1,0 +1,38 @@
+/* Boat List CSS */
+.boat-list-container {
+    padding: 20px;
+  }
+  
+  .boat-list-container h2 {
+    font-family: 'Arial, sans-serif';
+    color: #003366; /* Dark Blue color */
+  }
+  
+  .boat-list-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .boat-list-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .boat-list-container button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #003366; /* Dark Blue background */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .boat-list-container button:hover {
+    background-color: #002244; /* Even darker blue on hover */
+  }
+  

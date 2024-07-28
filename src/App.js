@@ -6,13 +6,12 @@ import Login from './Components/Login/Login';
 import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile';
 import BoatDetail from './Components/BoatDetail/BoatDetail';
-
 import Payment from './Components/Payment/Payment'; // Import the Payment component
 import Bookings from './Components/Bookings/Bookings';
+import AdminDashboard from './Components/Admin/AdminDashboard';
+import PrivateRoute from './Components/PrivateRoute';
 
 const App = () => {
-
-
   return (
     <div>
       <Navbar />
@@ -24,7 +23,14 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/bookings" element={<Bookings />} />
-
+        <Route 
+          path="/dashboard" 
+          element={
+            <PrivateRoute>
+              <AdminDashboard />
+            </PrivateRoute>
+          } 
+        />
       </Routes>
     </div>
   );

@@ -23,6 +23,9 @@ export const loginUser = (loginData) => async (dispatch) => {
       throw new Error('Incorrect password');
     }
 
+    // Store user data in local storage
+    localStorage.setItem('user', JSON.stringify(foundUser));
+
     console.log('Login successful');
     dispatch({ type: 'LOGIN_SUCCESS', payload: foundUser });
   } catch (error) {
@@ -30,3 +33,15 @@ export const loginUser = (loginData) => async (dispatch) => {
     dispatch({ type: 'LOGIN_FAIL', payload: error.message });
   }
 };
+
+export const logoutUser = () => (dispatch) => {
+  localStorage.removeItem('user');
+  dispatch({ type: 'LOGOUT' });
+};
+
+export const UPDATE_USER = 'UPDATE_USER';
+
+export const updateUser = (user) => ({
+  type: UPDATE_USER,
+  payload: user,
+});
