@@ -1,32 +1,70 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
+import UserForm from './UserForm';
+import './UserList.css'; // Import CSS
 
-const UserForm = ({ token, user, onSave }) => {
-  const [username, setUsername] = useState(user ? user.username : '');
-  const [email, setEmail] = useState(user ? user.email : '');
+const UserList = () => {
+  const [users, setUsers] = useState([]);
+  const [editingUser, setEditingUser] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const token = useSelector(state => state.auth.token);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const userData = { username, email };
-    if (user) {
-      await axios.put(`http://localhost:3001/users/${user.id}`, userData, {
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const response = await axios.get('http://localhost:3001/users', {
         headers: { Authorization: `Bearer ${token}` }
       });
-    } else {
-      await axios.post('http://localhost:3001/users', userData, {
+      setUsers(response.data);
+    };
+    fetchUsers();
+  }, [token]);
+
+  const handleDelete = async (id) => {
+    await axios.delete(`http://localhost:3001/users/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    setUsers(users.filter(user => user.id !== id));
+  };
+
+  const handleSave = () => {
+    setEditingUser(null);
+    setShowForm(false);
+    const fetchUsers = async () => {
+      const response = await axios.get('http://localhost:3001/users', {
         headers: { Authorization: `Bearer ${token}` }
       });
-    }
-    onSave();
+      setUsers(response.data);
+    };
+    fetchUsers();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" required />
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-      <button type="submit">Save</button>
-    </form>
+    <div className="user-list-container">
+      <h2>User List</h2>
+      <div className="form-toggle">
+        <button onClick={() => setShowForm(!showForm)}>
+          {showForm ? 'Hide Form' : 'Add New User'}
+        </button>
+      </div>
+      {showForm && (
+        <UserForm token={token} user={editingUser} onSave={handleSave} />
+      )}
+      <ul>
+        {users.map(user => (
+          <li key={user.id}>
+            <div className="user-details">
+              {user.username} - {user.email}
+            </div>
+            <div className="buttons">
+              <button onClick={() => setEditingUser(user)}>Edit</button>
+              <button onClick={() => handleDelete(user.id)}>Delete</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default UserForm;
+export default UserList;

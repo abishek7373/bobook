@@ -7,6 +7,7 @@ import './BoatList.css';
 const BoatList = () => {
   const [boats, setBoats] = useState([]);
   const [editingBoat, setEditingBoat] = useState(null);
+  const [isFormVisible, setIsFormVisible] = useState(false);
   const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const BoatList = () => {
 
   const handleSave = () => {
     setEditingBoat(null);
+    setIsFormVisible(false);
     const fetchBoats = async () => {
       const response = await axios.get('http://localhost:3001/boatData', {
         headers: { Authorization: `Bearer ${token}` }
@@ -37,20 +39,30 @@ const BoatList = () => {
     fetchBoats();
   };
 
+ 
+
+  const handleEditBoat = (boat) => {
+    setEditingBoat(boat);
+    setIsFormVisible(true);
+  };
+
   return (
     <div className="boat-list-container">
       <h2>Boat List</h2>
-      {editingBoat ? (
+      <button className="toggle-button" onClick={() => setIsFormVisible(!isFormVisible)}>
+        {isFormVisible ? '▲' : 'Add'}
+      </button>
+      {isFormVisible && (
         <BoatForm token={token} boat={editingBoat} onSave={handleSave} />
-      ) : (
-        <BoatForm token={token} onSave={handleSave} />
       )}
       <ul>
         {boats.map(boat => (
           <li key={boat.id}>
-            {boat.name} - {boat.location}
-            <button onClick={() => setEditingBoat(boat)}>Edit</button>
-            <button onClick={() => handleDelete(boat.id)}>Delete</button>
+            <span>{boat.name} - {boat.location}</span>
+            <div className="button-group">
+              <button onClick={() => handleEditBoat(boat)}>Edit</button>
+              <button onClick={() => handleDelete(boat.id)}>Delete</button>
+            </div>
           </li>
         ))}
       </ul>

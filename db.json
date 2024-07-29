@@ -278,16 +278,6 @@
       "days": "3",
       "totalPrice": 114000,
       "bookingDate": "2024-07-28T20:05:34.999Z"
-    },
-    {
-      "id": 1722206029918,
-      "boatId": 2,
-      "boatName": "Ocean Explorer",
-      "boatImage": "/img/b20.jpg",
-      "description": "Perfect for an adventurous trip on the sea.",
-      "days": 1,
-      "totalPrice": 45000,
-      "bookingDate": "2024-07-28T22:33:49.906Z"
     }
   ]
 }

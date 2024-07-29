@@ -30,7 +30,7 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <h1>Special Boats</h1>
+            <h1>Boats</h1>
             <div className="search-container">
                 <input
                     type="text"

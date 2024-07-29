@@ -7,6 +7,7 @@ import './UserList.css'; // Import CSS
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [editingUser, setEditingUser] = useState(null);
+  const [showForm, setShowForm] = useState(false);
   const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ const UserList = () => {
 
   const handleSave = () => {
     setEditingUser(null);
+    setShowForm(false);
     const fetchUsers = async () => {
       const response = await axios.get('http://localhost:3001/users', {
         headers: { Authorization: `Bearer ${token}` }
@@ -40,10 +42,13 @@ const UserList = () => {
   return (
     <div className="user-list-container">
       <h2>User List</h2>
-      {editingUser ? (
+      <div className="form-toggle">
+        <button onClick={() => setShowForm(!showForm)}>
+          {showForm ? 'Hide Form' : 'Add New User'}
+        </button>
+      </div>
+      {showForm && (
         <UserForm token={token} user={editingUser} onSave={handleSave} />
-      ) : (
-        <UserForm token={token} onSave={handleSave} />
       )}
       <ul>
         {users.map(user => (
