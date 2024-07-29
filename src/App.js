@@ -6,7 +6,7 @@ import Login from './Components/Login/Login';
 import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile';
 import BoatDetail from './Components/BoatDetail/BoatDetail';
-import Payment from './Components/Payment/Payment'; // Import the Payment component
+import Payment from './Components/Payment/Payment';
 import Bookings from './Components/Bookings/Bookings';
 import AdminDashboard from './Components/Admin/AdminDashboard';
 import PrivateRoute from './Components/PrivateRoute';

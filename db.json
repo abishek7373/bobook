@@ -14,6 +14,11 @@
       "id": 1722204189595,
       "email": "admin@123",
       "password": "admin"
+    },
+    {
+      "id": 1722277197456,
+      "email": "rohes@gmail.com",
+      "password": "1234"
     }
   ],
   "boatData": [
@@ -278,6 +283,16 @@
       "days": "3",
       "totalPrice": 114000,
       "bookingDate": "2024-07-28T20:05:34.999Z"
+    },
+    {
+      "id": 1722277228326,
+      "boatId": 1,
+      "boatName": "Sea Breeze",
+      "boatImage": "/img/sea_breeze.jpg",
+      "description": "A beautiful sailboat perfect for weekend trips.",
+      "days": "1",
+      "totalPrice": 30000,
+      "bookingDate": "2024-07-29T18:20:28.319Z"
     }
   ]
 }
