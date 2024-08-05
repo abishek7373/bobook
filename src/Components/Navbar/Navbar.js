@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
     const isLogged = useSelector(state => state.auth.isLogged);
     const navigate = useNavigate();
+    const user = useSelector(state => state.auth.user);
 
     const handleClick = () => {
         navigate('/');
@@ -13,7 +14,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar-container">
-            <div style={{ display: 'flex' , cursor:'pointer' }} onClick={handleClick}>
+            <div style={{ display: 'flex', cursor:'pointer' }} onClick={handleClick}>
                 <img src="./img/logoIcon.jpg" alt="Logo" height={100} width={100} style={{ paddingTop: '0px', paddingLeft: '0px' }} />
                 <h2 className="boat-themed-heading">BoBook</h2>
             </div>
@@ -25,9 +26,22 @@ const Navbar = () => {
                     <Link to="/bookings" className="navbar-link" style={{ textDecoration: 'none' }}>Bookings</Link>
                 </li>
                 {isLogged ? (
-                    <li><Link to="/profile" className="navbar-link" style={{ textDecoration: 'none' }}><img src="/img/user.png" alt="Profile" style={{ width: '30px', height: '30px' }} /></Link></li>
+                    <>
+                        {user && user.email === 'admin@123' && (
+                            <li>
+                                <Link to="/dashboard" className="navbar-link" style={{ textDecoration: 'none' }}>Dashboard</Link>
+                            </li>
+                        )}
+                        <li>
+                            <Link to="/profile" className="navbar-link" style={{ textDecoration: 'none' }}>
+                                <img src="/img/user.png" alt="Profile" style={{ width: '30px', height: '30px' }} />
+                            </Link>
+                        </li>
+                    </>
                 ) : (
-                    <li><Link to="/login" className="navbar-link" style={{ textDecoration: 'none' }}>Login</Link></li>
+                    <li>
+                        <Link to="/login" className="navbar-link" style={{ textDecoration: 'none' }}>Login</Link>
+                    </li>
                 )}
             </ul>
         </nav>

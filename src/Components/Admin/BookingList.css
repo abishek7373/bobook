@@ -1,0 +1,48 @@
+/* BookingList.css */
+.booking-list-container {
+    padding: 20px;
+  }
+  
+  .booking-list-container h2 {
+    font-family: 'Arial, sans-serif';
+    color: #003366; /* Dark Blue color */
+  }
+  
+  .booking-list-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .booking-list-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .booking-list-container .booking-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .booking-list-container .booking-details span {
+    margin-bottom: 5px;
+  }
+  
+  .booking-list-container button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #003366; /* Dark Blue background */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center text inside button */
+  }
+  
+  .booking-list-container button:hover {
+    background-color: #002244; /* Even darker blue on hover */
+  }
+  

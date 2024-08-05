@@ -275,24 +275,34 @@
   ],
   "bookings": [
     {
-      "id": "0651",
+      "id": 1722401473988,
+      "boatId": 4,
+      "boatName": "Luxury Voyager",
+      "boatImage": "/img/b40.jpg",
+      "description": "Experience luxury on the waters.",
+      "days": "9",
+      "totalPrice": 495000,
+      "bookingDate": "2024-07-31T04:51:13.981Z"
+    },
+    {
+      "id": 1722408903630,
       "boatId": 3,
       "boatName": "Sunset Cruiser",
       "boatImage": "/img/b30.jpg",
       "description": "Ideal for a romantic sunset cruise.",
-      "days": "3",
-      "totalPrice": 114000,
-      "bookingDate": "2024-07-28T20:05:34.999Z"
+      "days": "7",
+      "totalPrice": 266000,
+      "bookingDate": "2024-07-31T06:55:03.620Z"
     },
     {
-      "id": 1722277228326,
-      "boatId": 1,
-      "boatName": "Sea Breeze",
-      "boatImage": "/img/sea_breeze.jpg",
-      "description": "A beautiful sailboat perfect for weekend trips.",
-      "days": "1",
-      "totalPrice": 30000,
-      "bookingDate": "2024-07-29T18:20:28.319Z"
+      "id": 1722840235551,
+      "boatId": 3,
+      "boatName": "Sunset Cruiser",
+      "boatImage": "/img/b30.jpg",
+      "description": "Ideal for a romantic sunset cruise.",
+      "days": "4",
+      "totalPrice": 152000,
+      "bookingDate": "2024-08-05T06:43:55.435Z"
     }
   ]
 }

@@ -25,13 +25,21 @@ const Profile = () => {
   if (!user) {
     return <p>Loading...</p>;
   }
-
+  var n = ""
+  if(user.email === "admin@123")
+  {
+    n = "Admin"
+  }
+  else{
+    n = "Abisheak"
+  }
   return (
     <div className="profile-container">
       <h1>Profile</h1>
       <div className="profile-header">
         <img src={'./img/profile.jpg'} alt="Profile" className="profile-picture" />
-        <h2>{user.name || 'User Name'}</h2>
+        
+        <h2>{user.name ||n}</h2>
       </div>
       <div className="profile-details">
         <p>Email: {user.email}</p>
