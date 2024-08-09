@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "id": "eb17",
+      "id": "1",
       "email": "abi@123",
       "password": "marudhu"
     },
     {
-      "id": "dc8d",
+      "id": "2",
       "email": "aa@123",
       "password": "123"
     },
@@ -16,7 +16,7 @@
       "password": "admin"
     },
     {
-      "id": 1722277197456,
+      "id": 4,
       "email": "rohes@gmail.com",
       "password": "1234"
     }
@@ -277,32 +277,10 @@
     {
       "id": 1722401473988,
       "boatId": 4,
-      "boatName": "Luxury Voyager",
-      "boatImage": "/img/b40.jpg",
-      "description": "Experience luxury on the waters.",
+      "user_id": "2",
       "days": "9",
       "totalPrice": 495000,
       "bookingDate": "2024-07-31T04:51:13.981Z"
-    },
-    {
-      "id": 1722408903630,
-      "boatId": 3,
-      "boatName": "Sunset Cruiser",
-      "boatImage": "/img/b30.jpg",
-      "description": "Ideal for a romantic sunset cruise.",
-      "days": "7",
-      "totalPrice": 266000,
-      "bookingDate": "2024-07-31T06:55:03.620Z"
-    },
-    {
-      "id": 1722840235551,
-      "boatId": 3,
-      "boatName": "Sunset Cruiser",
-      "boatImage": "/img/b30.jpg",
-      "description": "Ideal for a romantic sunset cruise.",
-      "days": "4",
-      "totalPrice": 152000,
-      "bookingDate": "2024-08-05T06:43:55.435Z"
     }
   ]
 }
