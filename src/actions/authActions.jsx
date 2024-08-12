@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const registerUser = (userData) => async (dispatch) => {
   try {
-    const response = await axios.post('http://localhost:3001/users', userData);
+    const response = await axios.post('http://127.0.0.1:8000/api/create_user/', userData);
     dispatch({ type: 'REGISTER_SUCCESS', payload: response.data });
   } catch (error) {
     dispatch({ type: 'REGISTER_FAIL', payload: error.message });
@@ -11,7 +11,7 @@ export const registerUser = (userData) => async (dispatch) => {
 
 export const loginUser = (loginData) => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3001/users');
+    const response = await axios.get('http://127.0.0.1:8000/api/read_users/');
     const users = response.data;
     const foundUser = users.find(user => user.email === loginData.email);
 

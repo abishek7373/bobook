@@ -12,7 +12,7 @@ const UserList = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await axios.get('http://localhost:3001/users', {
+      const response = await axios.get('http://127.0.0.1:8000/api/read_users/', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(response.data);
@@ -21,7 +21,7 @@ const UserList = () => {
   }, [token]);
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:3001/users/${id}`, {
+    await axios.delete(`http://127.0.0.1:8000/api/delete_user/${id}/`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setUsers(users.filter(user => user.id !== id));
@@ -31,7 +31,7 @@ const UserList = () => {
     setEditingUser(null);
     setShowForm(false);
     const fetchUsers = async () => {
-      const response = await axios.get('http://localhost:3001/users', {
+      const response = await axios.get('http://127.0.0.1:8000/api/read_users/', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(response.data);

@@ -16,7 +16,7 @@ const BoatDetail = () => {
     const isLogged = useSelector(state => state.auth.isLogged);
 
     useEffect(() => {
-        fetch(`http://localhost:3001/boatData`)
+        fetch(`http://127.0.0.1:8000/api/read_boats/`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -96,7 +96,7 @@ const BoatDetail = () => {
             <div className="boat-detail-extra">
                 <h2>Images</h2>
                 <div className="boat-images">
-                    {boat.extraImages.map((img, index) => (
+                    {boat.extra_images.map((img, index) => (
                         <img key={index} src={img} alt={`${boat.name} ${index + 1}`} className="boat-extra-image" />
                     ))}
                 </div>

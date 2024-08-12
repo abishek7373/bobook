@@ -22,11 +22,11 @@ const BoatForm = ({ token, boat, onSave }) => {
       features: features.split(',').map(feature => feature.trim())
     };
     if (boat) {
-      await axios.put(`http://localhost:3001/boatData/${boat.id}`, boatData, {
+      await axios.put(`http://127.0.0.1:8000/api/update_boat/${boat.id}/`, boatData, {
         headers: { Authorization: `Bearer ${token}` }
       });
     } else {
-      await axios.post('http://localhost:3001/boatData', boatData, {
+      await axios.post('http://127.0.0.1:8000/api/create_boat/', boatData, {
         headers: { Authorization: `Bearer ${token}` }
       });
     }

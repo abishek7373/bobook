@@ -9,7 +9,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:3001/boatData')
+        fetch('http://127.0.0.1:8000/api/read_boats/')
             .then(response => response.json())
             .then(data => {
                 setBoats(data);

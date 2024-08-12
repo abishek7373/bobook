@@ -12,7 +12,7 @@ const BoatList = () => {
 
   useEffect(() => {
     const fetchBoats = async () => {
-      const response = await axios.get('http://localhost:3001/boatData', {
+      const response = await axios.get('http://127.0.0.1:8000/api/read_boats/', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBoats(response.data);
@@ -21,7 +21,7 @@ const BoatList = () => {
   }, [token]);
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:3001/boatData/${id}`, {
+    await axios.delete(`http://127.0.0.1:8000/api/delete_boat/${id}/`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setBoats(boats.filter(boat => boat.id !== id));
@@ -31,7 +31,7 @@ const BoatList = () => {
     setEditingBoat(null);
     setIsFormVisible(false);
     const fetchBoats = async () => {
-      const response = await axios.get('http://localhost:3001/boatData', {
+      const response = await axios.get('http://127.0.0.1:8000/api/read_boats/', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBoats(response.data);

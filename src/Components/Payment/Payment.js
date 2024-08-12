@@ -8,13 +8,13 @@ const Payment = () => {
     const boat = location.state?.boat; // Safeguard with optional chaining
 
     const [days, setDays] = useState(1);
-    const [totalPrice, setTotalPrice] = useState(boat ? boat.price : 0);
+    const [totalPrice, setTotalPrice] = useState(boat ? parseFloat(boat.price) : 0);
 
     const handleDaysChange = (event) => {
-        const selectedDays = event.target.value;
+        const selectedDays = parseInt(event.target.value, 10);
         setDays(selectedDays);
         if (boat) {
-            setTotalPrice(boat.price * selectedDays);
+            setTotalPrice(parseFloat(boat.price) * selectedDays);
         }
     };
 
@@ -26,7 +26,7 @@ const Payment = () => {
                 boatImage: boat.image,
                 description: boat.description,
                 days,
-                totalPrice,
+                totalPrice: totalPrice.toFixed(2), // Ensure totalPrice is a formatted string
                 bookingDate: new Date().toISOString()
             };
 

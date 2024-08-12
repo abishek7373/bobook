@@ -23,7 +23,6 @@
   ],
   "boatData": [
     {
-      "id": 1,
       "name": "Sea Breeze",
       "description": "A beautiful sailboat perfect for weekend trips.",
       "image": "/img/sea_breeze.jpg",
@@ -275,12 +274,44 @@
   ],
   "bookings": [
     {
-      "id": 1722401473988,
-      "boatId": 4,
-      "user_id": "2",
-      "days": "9",
-      "totalPrice": 495000,
-      "bookingDate": "2024-07-31T04:51:13.981Z"
+      "id": "0651",
+      "boatId": 3,
+      "boatName": "Sunset Cruiser",
+      "boatImage": "/img/b30.jpg",
+      "description": "Ideal for a romantic sunset cruise.",
+      "days": "3",
+      "totalPrice": 114000,
+      "bookingDate": "2024-07-28T20:05:34.999Z"
+    },
+    {
+      "id": 1722206029918,
+      "boatId": 2,
+      "boatName": "Ocean Explorer",
+      "boatImage": "/img/b20.jpg",
+      "description": "Perfect for an adventurous trip on the sea.",
+      "days": 1,
+      "totalPrice": 45000,
+      "bookingDate": "2024-07-28T22:33:49.906Z"
+    },
+    {
+      "id": 1722227013029,
+      "boatId": 8,
+      "boatName": "Sea Breeze",
+      "boatImage": "/img/b80.jpg",
+      "description": "Relax and enjoy the sea breeze.",
+      "days": "10",
+      "totalPrice": 370000,
+      "bookingDate": "2024-07-29T04:23:32.927Z"
+    },
+    {
+      "id": 1723487011356,
+      "boatId": 3,
+      "boatName": "Sunset Cruiser",
+      "boatImage": "/img/b30.jpg",
+      "description": "Ideal for a romantic sunset cruise.",
+      "days": 1,
+      "totalPrice": "38000.00",
+      "bookingDate": "2024-08-12T18:23:31.223Z"
     }
   ]
 }

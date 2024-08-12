@@ -30,7 +30,7 @@ const Bookings = () => {
                     <img src={booking.boatImage || '/default-image.jpg'} alt={booking.boatName} className="booking-image" />
                     <p>{booking.description}</p>
                     <p>Days: {booking.days}</p>
-                    <p>Total Price: {booking.totalPrice.toFixed(2)} Rs</p>
+                    <p>Total Price: {booking.totalPrice} Rs</p>
                     <p>Booking Date: {new Date(booking.bookingDate).toLocaleDateString()}</p>
                 </div>
             ))}
